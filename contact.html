@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — UKA Technical Institute</title>
+  <link rel="stylesheet" href="home.css">
+  <script src="https://kit.fontawesome.com/a2e0f1f6a2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="home.css">
+
+  <style>
+    :root {
+      --accent: #2eb8b8;
+      --accent-dark: #229999;
+      --bg: #f6f8fb;
+      --white: #ffffff;
+      --text: #0f172a;
+      --muted: #6b7280;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: var(--white);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header img {
+      height: 80px;
+      width: 180px;
+      object-fit: contain;
+    }
+
+    header h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      background: var(--white);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      /* color: var(--accent); */
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p.intro {
+      color: var(--muted);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+  
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(46,184,184,0.15);
+    }
+
+    select {
+      background-color: var(--white);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .required::after {
+      content: " *";
+      color: #dc2626;
+    }
+
+    .dataprotection {
+      background: #f1fafa;
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    .submit-btn {
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 12px rgba(46,184,184,0.3);
+    }
+
+
+    @media (max-width: 768px) {
+      main {
+        padding: 24px;
+        margin: 40px 12px;
+      }
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="2_UKA-&-British-council-Logo.png" alt="UKA Logo">
+        UKA TECHNICAL INSTITUTE
+      </div>
+
+      <nav class="nav-links main-links">
+     <a href="#courses">COURSES</a>
+      <a href="https://mock.ukatechnical.com/" target="_blank">IELTS MOCK TEST</a>
+      <a href="home.html">LEVEL TEST</a>
+      <a href="contact.html">CONTACT</a>
+      </nav>
+
+      <!-- 🔹 Auth Links (Dynamic with auth.js) -->
+      <div class="auth-links" id="auth-links">
+        <a href="login.html" class="btn" id="loginBtn">Log in</a>
+        <a href="register.html" class="btn" id="registerBtn">Register</a>
+        <a href="profile.html" class="btn" id="profileBtn" style="display:none;">Profile</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🔹 Main Contact Section -->
+  <main class="container">
+    <section class="contact-hero">
+      <h1>Contact Us</h1>
+      <p>We’re here to help! Reach out to us for any queries or support.</p>
+    </section>
+
+    <section class="contact-form-section">
+      <form class="contact-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email address" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <h3>Our Office</h3>
+        <p><i class="fas fa-map-marker-alt"></i> House: 12, Road: Avenue-8, Block: M, Banasree, Dhaka</p>
+        <p><i class="fas fa-envelope"></i> www.ukatechnical.com</p>
+        <p><i class="fas fa-phone"></i> 014070 63431 | 014070 63434 | 014070 65775</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🔹 Footer -->
+  <footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <h2>UKA <span>TECHNICAL INSTITUTE</span></h2>
+      <p>Empowering learners with technology and language skills.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="contact.html" target="_blank">Contact</a>
+      <span>|</span>
+      <a href="#" target="_blank">Our Courses</a>
+      <span>|</span>
+      <a href="https://mock.ukatechnical.com/" target="_blank">Mock Test</a>
+      <span>|</span>
+      <a href="#" target="_blank">IELTS Practice</a>
+      <span>|</span>
+      <a href="#" target="_blank">Book Online Speaking</a>
+      <span>|</span>
+      <a href="#" target="_blank">Join Language Club</a>
+      <span>|</span>
+      <a href="#" target="_blank">IT Support</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/ukatechnicalinstitute/" target="_blank" aria-label="Facebook">
+        <img src="facebook.png" alt="Facebook" class="social-icon">
+      </a>
+
+      <a href="#" target="_blank" aria-label="Instagram">
+        <img src="instagram.png" alt="Instagram" class="social-icon">
+      </a>
+
+      <a href="#" target="_blank" aria-label="YouTube">
+        <img src="youtube.png" alt="YouTube" class="social-icon">
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 UKA Technical Institute · All Rights Reserved</p>
+    </div>
+
+  </div>
+</footer>
+
+
+  <!-- ✅ Auth Script (Handles login/register/profile visibility) -->
+  <script src="auth.js"></script>
+</body>
+
+<script>
+document.querySelector(".contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  try {
+    const res = await fetch("http://localhost:5000/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+
+    if (res.ok) {
+      document.querySelector(".contact-form").reset();
+    }
+
+  } catch (err) {
+    alert("Failed to connect to server!");
+    console.log(err);
+  }
+});
+</script>
+
+
+</html>

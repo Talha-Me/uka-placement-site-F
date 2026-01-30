@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Test Result</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="result.css">
+<link rel="stylesheet" href="home.css">
+
+<!-- ALWAYS LOAD PDF LIBRARY FIRST -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- MAIN JS -->
+<script src="auth.js" defer></script>
+<script src="result.js" defer></script>
+
+<!-- ALWAYS SHOW PROFILE ON THIS PAGE -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("loginBtn");
+  const registerBtn = document.getElementById("registerBtn");
+  const profileBtn = document.getElementById("profileBtn");
+
+  // Hide login/register
+  if (loginBtn) loginBtn.style.display = "none";
+  if (registerBtn) registerBtn.style.display = "none";
+
+  // Show profile button
+  if (profileBtn) {
+    profileBtn.style.display = "inline-block";
+
+    // ALWAYS OPEN NEW TAB
+    profileBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.open("profile.html", "_blank");
+    });
+  }
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- HEADER NAVBAR -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="2_UKA-&-British-council-Logo.png" alt="UKA Logo">
+      UKA TECHNICAL INSTITUTE
+    </div>
+
+    <nav class="nav-links main-links">
+     <a href="#courses">COURSES</a>
+      <a href="https://mock.ukatechnical.com/" target="_blank">IELTS MOCK TEST</a>
+      <a href="home.html">LEVEL TEST</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <div class="auth-links" id="auth-links">
+      <a href="login.html" class="btn" id="loginBtn">Log in</a>
+      <a href="register.html" class="btn" id="registerBtn">Register</a>
+      <a href="profile.html" class="btn" id="profileBtn" style="display:none;">Profile</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- RESULT PAGE -->
+<div class="result-container">
+
+  <h2>Your English Test Result</h2>
+
+  <!-- TWO CIRCLES -->
+  <div class="circle-wrapper">
+
+    <!-- PERCENTAGE -->
+    <div class="circle-box">
+      <svg width="150" height="150">
+        <circle cx="75" cy="75" r="60" stroke="#e6e6e6" stroke-width="12" fill="none" />
+        <circle id="percentArc" cx="75" cy="75" r="60"
+                stroke="#31d3c6" stroke-width="12" fill="none"
+                stroke-linecap="round" transform="rotate(-90 75 75)" />
+      </svg>
+      <div class="circle-label">Percentage</div>
+      <div id="percentText" class="circle-value">0%</div>
+    </div>
+
+    <!-- CEFR -->
+    <div class="circle-box">
+      <svg width="150" height="150">
+        <circle cx="75" cy="75" r="60" stroke="#e6e6e6" stroke-width="12" fill="none" />
+        <circle id="cefrArc" cx="75" cy="75" r="60"
+                stroke="#12927c" stroke-width="12" fill="none"
+                stroke-linecap="round" transform="rotate(-90 75 75)" />
+      </svg>
+      <div class="circle-label">CEFR Level</div>
+      <div id="cefrLevelText" class="circle-value"></div>
+    </div>
+
+  </div>
+
+  <!-- TEXT DESCRIPTION -->
+  <p id="resultDetails"></p>
+
+  <!-- PDF BUTTON -->
+  <button onclick="downloadPDF()" class="pdf-btn">📄 Download Result PDF</button>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <!-- <h2>UKA <span>TECHNICAL INSTITUTE</span></h2> -->
+       <h2 style="color:white;">UKA <span style="color:white;">TECHNICAL INSTITUTE</span></h2>
+
+      <p>Empowering learners with technology and language skills.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="contact.html" target="_blank">Contact</a>
+      <span>|</span>
+      <a href="#" target="_blank">Our Courses</a>
+      <span>|</span>
+      <a href="https://mock.ukatechnical.com/" target="_blank">Mock Test</a>
+      <span>|</span>
+      <a href="#" target="_blank">IELTS Practice</a>
+      <span>|</span>
+      <a href="#" target="_blank">Book Online Speaking</a>
+      <span>|</span>
+      <a href="#" target="_blank">Join Language Club</a>
+      <span>|</span>
+      <a href="#" target="_blank">IT Support</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/ukatechnicalinstitute/" target="_blank" aria-label="Facebook">
+        <img src="facebook.png" alt="Facebook" class="social-icon">
+      </a>
+
+      <a href="#" target="_blank" aria-label="Instagram">
+        <img src="instagram.png" alt="Instagram" class="social-icon">
+      </a>
+
+      <a href="#" target="_blank" aria-label="YouTube">
+        <img src="youtube.png" alt="YouTube" class="social-icon">
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 UKA Technical Institute · All Rights Reserved</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

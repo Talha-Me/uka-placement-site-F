@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register | UKA Technical Institute</title>
+  <link rel="stylesheet" href="home.css">
+
+  <style>
+    /* -------- GLOBAL LAYOUT FIX (same as login fix) -------- */
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      padding-top: 90px; /* fixed header height fix */
+    }
+    .hero {
+      flex: 1; /* pushes footer to bottom */
+    }
+
+    /* -------- PASSWORD FIELD -------- */
+    .password-field {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #555;
+    }
+    .toggle-password:hover {
+      color: var(--accent, #007bff);
+    }
+
+    /* -------- PHONE FIELD -------- */
+    .phone-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .country-prefix {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px 0 0 6px;
+      background: #eee;
+      font-weight: bold;
+    }
+    #phone {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-left: none;
+      border-radius: 0 6px 6px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- FIXED HEADER (duplicate removed) -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="2_UKA-&-British-council-Logo.png" alt="UKA Logo">
+      UKA TECHNICAL INSTITUTE
+    </div>
+
+    <nav class="nav-links main-links">
+      <a href="#courses">COURSES</a>
+      <a href="https://mock.ukatechnical.com/" target="_blank">IELTS MOCK TEST</a>
+      <a href="#test">LEVEL TEST</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <div class="auth-links" id="auth-links">
+      <a href="login.html" class="btn" id="loginBtn">Log in</a>
+      <a href="register.html" class="btn" id="registerBtn">Register</a>
+      <a href="profile.html" class="btn" id="profileBtn" style="display:none;">Profile</a>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN REGISTER FORM -->
+<div class="hero" style="max-width:500px;margin:40px auto;">
+  <h1>Register to Begin Your Test</h1>
+
+  <form id="registerForm" style="display:flex;flex-direction:column;gap:14px;text-align:left;">
+
+    <label>Full Name*</label>
+    <input type="text" id="name" required style="padding:10px;border:1px solid #ccc;border-radius:6px;">
+
+    <label>Email Address*</label>
+    <input type="email" id="email" required style="padding:10px;border:1px solid #ccc;border-radius:6px;">
+
+    <label>Country Code*</label>
+    <select id="countryCode" required style="padding:10px;border:1px solid #ccc;border-radius:6px;">
+      <option value="+880">🇧🇩 Bangladesh (+880)</option>
+      <option value="+91">🇮🇳 India (+91)</option>
+      <option value="+92">🇵🇰 Pakistan (+92)</option>
+      <option value="+971">🇦🇪 UAE (+971)</option>
+      <option value="+966">🇸🇦 Saudi Arabia (+966)</option>
+      <option value="+44">🇬🇧 UK (+44)</option>
+      <option value="+1">🇺🇸 USA (+1)</option>
+    </select>
+
+    <label>Phone Number*</label>
+    <div class="phone-wrapper">
+      <div class="country-prefix" id="countryPrefix">+880</div>
+      <input type="tel" id="phone" required placeholder="Enter number only">
+    </div>
+
+    <label>Password*</label>
+    <div class="password-field">
+      <input type="password" id="password" required minlength="4" placeholder="Enter password"
+        style="padding:10px;border:1px solid #ccc;border-radius:6px;flex:1;">
+      <button type="button" class="toggle-password" id="togglePassword">👁️</button>
+    </div>
+
+    <button type="submit" class="btn" style="align-self:flex-start;">Register</button>
+  </form>
+</div>
+
+<!-- FIXED FOOTER (INSIDE BODY) -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <h2>UKA <span>TECHNICAL INSTITUTE</span></h2>
+      <p>Empowering learners with technology and language skills.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="contact.html" target="_blank">Contact</a>
+      <span>|</span>
+      <a href="#" target="_blank">Our Courses</a>
+      <span>|</span>
+      <a href="https://mock.ukatechnical.com/" target="_blank">Mock Test</a>
+      <span>|</span>
+      <a href="#" target="_blank">IELTS Practice</a>
+      <span>|</span>
+      <a href="#" target="_blank">Book Online Speaking</a>
+      <span>|</span>
+      <a href="#" target="_blank">Join Language Club</a>
+      <span>|</span>
+      <a href="#" target="_blank">IT Support</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/ukatechnicalinstitute/" target="_blank">
+        <img src="facebook.png" alt="Facebook" class="social-icon">
+      </a>
+      <a href="#" target="_blank">
+        <img src="instagram.png" alt="Instagram" class="social-icon">
+      </a>
+      <a href="#" target="_blank">
+        <img src="youtube.png" alt="YouTube" class="social-icon">
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 UKA Technical Institute · All Rights Reserved</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+  // Password toggle
+  document.getElementById("togglePassword").addEventListener("click", function () {
+    const pwd = document.getElementById("password");
+    const type = pwd.type === "password" ? "text" : "password";
+    pwd.type = type;
+    this.textContent = type === "password" ? "👁️" : "👀";
+  });
+
+  const countryCodeSelect = document.getElementById("countryCode");
+  const countryPrefix = document.getElementById("countryPrefix");
+  const phoneInput = document.getElementById("phone");
+
+  const phoneRules = {
+    "+880": 10,
+    "+91": 10,
+    "+92": 10,
+    "+971": 9,
+    "+966": 9,
+    "+44": 10,
+    "+1": 10
+  };
+
+  // Update prefix and input limit
+  function updatePhoneRule() {
+    const code = countryCodeSelect.value;
+    countryPrefix.textContent = code;
+    phoneInput.value = "";
+    phoneInput.maxLength = phoneRules[code];
+  }
+  updatePhoneRule();
+  countryCodeSelect.addEventListener("change", updatePhoneRule);
+
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, "");
+  });
+
+  // Submit handler
+  document.getElementById("registerForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const code = countryCodeSelect.value;
+    const number = phoneInput.value.trim();
+
+    if (number.length !== phoneRules[code]) {
+      alert(`Phone number must be exactly ${phoneRules[code]} digits for ${code}`);
+      return;
+    }
+
+    const user = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: code + number,
+      password: document.getElementById("password").value.trim()
+    };
+
+    try {
+      const res = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user)
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Registration successful!");
+        window.location.href = "login.html";
+      } else {
+        alert("⚠️ " + data.message);
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert("Server not responding. Try again later.");
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | UKA Technical Institute</title>
+  <link rel="stylesheet" href="home.css">
+
+  <style>
+    /* ---------------- FIXED HEADER SPACING ---------------- */
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      padding-top: 90px; /* header height fix */
+    }
+
+    /* ---------------- MAIN CONTENT FLEX ---------------- */
+    .hero {
+      flex: 1; /* pushes footer to bottom */
+    }
+
+    /* ---------------- PASSWORD & PHONE ---------------- */
+    .password-field {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #555;
+    }
+    .phone-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .country-prefix {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px 0 0 6px;
+      background: #eee;
+      font-weight: bold;
+    }
+    #phone {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-left: none;
+      border-radius: 0 6px 6px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="2_UKA-&-British-council-Logo.png" alt="UKA Logo">
+      UKA TECHNICAL INSTITUTE
+    </div>
+
+    <nav class="nav-links main-links">
+      <a href="#courses">COURSES</a>
+      <a href="https://mock.ukatechnical.com/" target="_blank">IELTS MOCK TEST</a>
+      <a href="#test">LEVEL TEST</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <div class="auth-links" id="auth-links">
+      <a href="login.html" class="btn" id="loginBtn">Log in</a>
+      <a href="register.html" class="btn" id="registerBtn">Register</a>
+      <a href="profile.html" class="btn" id="profileBtn" style="display:none;">Profile</a>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN LOGIN BOX -->
+<div class="hero" style="max-width:500px;margin:40px auto;">
+  <h1>Login to Continue</h1>
+
+  <form id="loginForm" style="display:flex;flex-direction:column;gap:14px;text-align:left;">
+
+    <label>Country Code*</label>
+    <select id="countryCode" required style="padding:10px;border:1px solid #ccc;border-radius:6px;">
+      <option value="+880">🇧🇩 Bangladesh (+880)</option>
+      <option value="+91">🇮🇳 India (+91)</option>
+      <option value="+92">🇵🇰 Pakistan (+92)</option>
+      <option value="+971">🇦🇪 UAE (+971)</option>
+      <option value="+966">🇸🇦 Saudi Arabia (+966)</option>
+      <option value="+44">🇬🇧 UK (+44)</option>
+      <option value="+1">🇺🇸 USA (+1)</option>
+    </select>
+
+    <label>Phone Number*</label>
+    <div class="phone-wrapper">
+      <div class="country-prefix" id="countryPrefix">+880</div>
+      <input type="tel" id="phone" required placeholder="Enter number only">
+    </div>
+
+    <label>Password*</label>
+    <div class="password-field">
+      <input type="password" id="password" required minlength="4" placeholder="Enter password"
+        style="padding:10px;border:1px solid #ccc;border-radius:6px;flex:1;">
+      <button type="button" class="toggle-password" id="togglePassword">👁️</button>
+    </div>
+
+    <a href="forgot.html" style="font-size:14px;color:#1f8f8f;text-decoration:none;">Forgot Password?</a>
+
+    <button type="submit" class="btn" style="align-self:flex-start;">Login</button>
+  </form>
+</div>
+
+<!-- FOOTER (NOW INSIDE BODY + STICKS BOTTOM) -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <h2>UKA <span>TECHNICAL INSTITUTE</span></h2>
+      <p>Empowering learners with technology and language skills.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="contact.html" target="_blank">Contact</a>
+      <span>|</span>
+      <a href="#" target="_blank">Our Courses</a>
+      <span>|</span>
+      <a href="https://mock.ukatechnical.com/" target="_blank">Mock Test</a>
+      <span>|</span>
+      <a href="#" target="_blank">IELTS Practice</a>
+      <span>|</span>
+      <a href="#" target="_blank">Book Online Speaking</a>
+      <span>|</span>
+      <a href="#" target="_blank">Join Language Club</a>
+      <span>|</span>
+      <a href="#" target="_blank">IT Support</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/ukatechnicalinstitute/" target="_blank">
+        <img src="facebook.png" class="social-icon">
+      </a>
+      <a href="#" target="_blank">
+        <img src="instagram.png" class="social-icon">
+      </a>
+      <a href="#" target="_blank">
+        <img src="youtube.png" class="social-icon">
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 UKA Technical Institute · All Rights Reserved</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<script src="auth.js"></script>
+
+<script>
+  // Password toggle
+  document.getElementById("togglePassword").addEventListener("click", function () {
+    const pwd = document.getElementById("password");
+    const type = pwd.getAttribute("type") === "password" ? "text" : "password";
+    pwd.setAttribute("type", type);
+    this.textContent = type === "password" ? "👁️" : "👀";
+  });
+
+  const countryCodeSelect = document.getElementById("countryCode");
+  const countryPrefix = document.getElementById("countryPrefix");
+  const phoneInput = document.getElementById("phone");
+
+  // Phone rules
+  const phoneRules = {
+    "+880": 10,
+    "+91": 10,
+    "+92": 10,
+    "+971": 9,
+    "+966": 9,
+    "+44": 10,
+    "+1": 10
+  };
+
+  function updatePhoneRule() {
+    const code = countryCodeSelect.value;
+    countryPrefix.textContent = code;
+    phoneInput.value = "";
+    phoneInput.maxLength = phoneRules[code];
+  }
+  updatePhoneRule();
+  countryCodeSelect.addEventListener("change", updatePhoneRule);
+
+  // Digit only
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, "");
+  });
+
+  document.getElementById("loginForm").addEventListener("submit", loginUser);
+</script>
+
+</body>
+</html>
